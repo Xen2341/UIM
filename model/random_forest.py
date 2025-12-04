@@ -10,10 +10,10 @@ def random_forest() -> RandomForestClassifier:
         Output: Nakonfigurovaný RandomForestClassifier pro binární klasifikaci.
         """
     return RandomForestClassifier(
-        n_estimators=200,
-        max_depth=4,
-        min_samples_leaf=1,
-        max_features=0.6,
+        n_estimators=500,
+        max_depth=10,
+        min_samples_leaf=2,
+        max_features='sqrt',
         class_weight="balanced",
         random_state= RANDOM_STATE,
         n_jobs=-1,

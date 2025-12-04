@@ -164,7 +164,7 @@ def train_main(input_csv: str, artifacts_dir: str):
     except Exception:
         pass
 
-    print("\nTraining finished. Pipeline model saved to model.pkl.")
+    print("\nTraining finished. Pipeline model saved to model.pkl in artifacts dir.")
 
 
 if __name__ == "__main__":
