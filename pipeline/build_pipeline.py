@@ -12,12 +12,14 @@ from model.random_forest import random_forest
 def build_pipeline() -> Pipeline:
     """
     Sestavuje kompletní ML pipeline složenou z:
-    1) ClinicalCleaner – základní čištění,
-    2) feature_engineering – tvorba nových příznaků,
-    3) build_preprocessor – imputace + škálování,
-    4) RandomForestClassifier – finální model.
+        - ClinicalCleaner – základní čištění,
+        - feature_engineering – tvorba nových příznaků,
+        - build_preprocessor – imputace + škálování,
+        - RandomForestClassifier – finální model.
 
     Pipeline je plně kompatibilní s cross-validací a joblib uložením.
+
+    Output: Zostavený pipeline pre trénovanie modelu.
     """
     cleaner = ClinicalCleaner(iqr_factor=2.5)
     fe_transformer = FunctionTransformer(feature_engineering, validate=False)

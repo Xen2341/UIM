@@ -8,9 +8,10 @@ from sklearn.preprocessing import StandardScaler
 def build_preprocessor() -> ColumnTransformer:
     """
     Vytváří ColumnTransformer pro numerické sloupce:
-    - KNN imputace,
-    - StandardScaler.
-    Vrací objekt připravený pro použití v plné pipeline.
+        - KNN imputace,
+        - StandardScaler.
+
+    Output: Objekt pre použitie v plnej pipeline.
     """
 
     numeric_transformer = Pipeline(

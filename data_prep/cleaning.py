@@ -6,8 +6,11 @@ from config import *
 
 def replace_zeros_and_negatives(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Nahradí neplatné klinické hodnoty nulou (tam, kde nula není možná)
-    a negativní hodnoty označí jako NaN, aby byly následně imputovány.
+    Náhrada negatívnych a fyzicky nemožných hodnôt za NaN.
+    Určené na dalšie spracovanie.
+
+    Input: DataFrame s možnými nerealnymi hodnotami.
+    Output: DataFrame s NaN namiesto nereálnych hodnôt. 
     """
 
     df.copy()
@@ -27,10 +30,12 @@ def replace_zeros_and_negatives(df: pd.DataFrame) -> pd.DataFrame:
 class ClinicalCleaner(BaseEstimator, TransformerMixin):
     """
         Transformer pro klinické čištění dat:
-        - nahrazuje neplatné hodnoty (0, negativní),
-        - detekuje extrémní hodnoty podle IQR a ořezává je,
-        - zachovává stabilní chování i při malém množství dat (min_valid_samples).
+            - nahrazuje neplatné hodnoty (0, negativní),
+            - detekuje extrémní hodnoty podle IQR a ořezává je,
+            - zachovává stabilní chování i při malém množství dat (min_valid_samples).
         Používá se jako první krok pipeline.
+
+        Output: Dataset s nahradenými neplatnými dátami.
         """
 
     # INICIALIZACE TRANSFORMERU

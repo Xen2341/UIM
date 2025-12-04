@@ -28,14 +28,18 @@ from pipeline.build_pipeline import build_pipeline
 
 def train_main(input_csv: str, artifacts_dir: str):
     """
-    Hlavní trénovací funkce:
-    - načte dataset,
-    - rozdělí na train/test,
-    - natrénuje pipeline,
-    - spočítá metriky (Accuracy, AUC, MCC, F1),
-    - vykreslí learning curve,
-    - provede cross-validaci,
-    - uloží model a artefakty do zadaného adresáře.
+    Hlavná trenovacia funkcia modelu, ktorá:
+        - načíta dataset zo zadanej adresy 'input_csv',
+        - rozdeli dáta na trénovaciu a testovaciu sadu v pomere 80:20,
+        - natrénuje pipeline,
+        - vypočíta štatistické metriky (Accuracy, AUC, MCC, F1),
+        - vykreslí learning curve,
+        - vykoná cross-validaci,
+        - uloží model a artefakty do zadaného adresáru 'artifacts_dir'.
+
+    Input: Adresa *datasetu*.csv na analýzu a adresár na uloženie artefaktov.
+    Output: Natrénovaný model, uložené artefakty, výpočet statistických metrík. 
+
     """
     os.makedirs(artifacts_dir, exist_ok=True)
 
