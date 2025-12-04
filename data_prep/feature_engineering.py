@@ -7,6 +7,9 @@ def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
     Provádí rozšíření datasetu o nové klinické příznaky. Vypočítává metabolické indexy
     (HOMA-IR, GI_Ratio), interakční a mocninné rysy, binární rizikové příznaky
     a log-transformace. Výsledkem je rozšířená množina rysů pro model.
+
+    Input: DataFrame s původními příznaky.
+    Output: DataFrame s přidanými novými příznaky.
     """
 
     df.copy()

@@ -21,7 +21,6 @@ def replace_zeros_and_negatives(df: pd.DataFrame) -> pd.DataFrame:
             df[col] = df[col].replace(0, np.nan)
 
     # Eliminace chybně měřených negativních hodnot – vstup pro imputaci.
-
     df[NUM_COLS] = df[NUM_COLS].mask(df[NUM_COLS] < 0, np.nan)
 
     return df
